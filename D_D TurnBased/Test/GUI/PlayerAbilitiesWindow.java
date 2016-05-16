@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.*;
+import java.math.*;
 
 public class PlayerAbilitiesWindow extends JFrame
 {
@@ -9,6 +11,7 @@ public class PlayerAbilitiesWindow extends JFrame
 	private GridBagConstraints constraints;
 
 	private int[] rolls = {9, 10, 11, 12, 13, 14};
+	private int[] usedOps = {0,0,0,0,0,0};
 	private JComboBox[] abilOps = new JComboBox[6];
 	private String[] options = {"--", "9", "10", "11", "12", "13", "14"};//set as 10 once done debugging
 //	private String[] lastOption = {"--", "--", "--", "--", "--", "--"};
@@ -113,7 +116,9 @@ public class PlayerAbilitiesWindow extends JFrame
 //@SuppressWarnings("unchecked")//Try to deal with this later-->ERROR IS LINE 131, casting as a String, ect.
 	public void setUp(int index)//sent the index of the box that was changed
 	{
-		try
+		intensify(index);
+		
+/*		try
 		{
 			int vb = Integer.parseInt(lastOption[index]);
 			for(int x = 0; x < 6; x++)
@@ -128,14 +133,14 @@ public class PlayerAbilitiesWindow extends JFrame
 		}
 
 //		if(lastOption[index].compareTo("--")!=0)
-/*		if(lastOption[index].charAt(0)!='-')
+		if(lastOption[index].charAt(0)!='-')
 		{
 			for(int x = 0; x < 6; x++)
 			{
 				if(x!=index)
 					abilOps[x].addItem(lastOption[index]);
 			}
-		}*/
+		}
 
 //		JComboBox holdier = abilOps[index];
 		lastOption[index] = (String)abilOps[index].getSelectedItem();
@@ -144,8 +149,40 @@ public class PlayerAbilitiesWindow extends JFrame
 		{
 			
 //			abilOps[x].removeItem(lastOption[index]);
+		}*/
+	}
+	
+	public void intensify(int index)
+	{
+		ArrayList<String> opz = new ArrayList<String>();
+		String[] hold;
+		String[] hold2;
+		boolean temp;
+		String zest = (String)abilOps[index].getSelectedItem();
+		if(zest.equals("--"))
+			usedOps[index]=0;
+		else
+		{
+			for(int c = 1; c <  7; c++)
+			{
+				if(zest.equals(options[c]))
+				{
+					for(int x = 0; x < usedOps.length; x++)
+					{
+						if(usedOps[x]==c)
+							x = 56;
+						else if(x==usedOps.length-1)
+						{
+							usedOps[index] = c;
+							c = 56;
+							x = 56;
+						}
+					}
+				}
+			}
 		}
 	}
+	
 	//below rolls ability scores as per standard rules, 4d6 drop the lowest, reroll if 13 is biggest roll OR mods <=0
 	public void getRolls()
 	{
