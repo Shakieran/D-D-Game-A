@@ -1,0 +1,2 @@
+"C:\\Users\\USER\\Documents\\GitHub\\D-D-Game-A\\D_D TurnBased\\Test\\GUI\\PlayerAbilitiesWindow.java"
+"C:\\Users\\USER\\Documents\\GitHub\\D-D-Game-A\\D_D TurnBased\\Test\\GUI\\PlayerBioWindow.java"

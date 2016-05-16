@@ -8,6 +8,24 @@
 		<project>
 			<label>Test</label>
 			<showfiles>false</showfiles>
+			<folderitem>
+				<path>Test\GUI</path>
+				<dir>GUI</dir>
+			</folderitem>
 		</project>
 	</projects>
+	<open_files>
+		<docitem>
+			<path>Test\GUI\PlayerBioWindow.java</path>
+			<source>true</source>
+			<index>0</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>Test\GUI\PlayerAbilitiesWindow.java</path>
+			<source>true</source>
+			<index>1</index>
+			<active>true</active>
+		</docitem>
+	</open_files>
 </workspace_user>

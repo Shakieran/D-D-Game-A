@@ -25,7 +25,19 @@
 	</runtimes>
 	<libraries/>
 	<files>
-		<include/>
+		<include>
+			<folderitem>
+				<path>GUI</path>
+			</folderitem>
+			<fileitem>
+				<path>GUI\PlayerAbilitiesWindow.java</path>
+				<folder>GUI</folder>
+			</fileitem>
+			<fileitem>
+				<path>GUI\PlayerBioWindow.java</path>
+				<folder>GUI</folder>
+			</fileitem>
+		</include>
 	</files>
 	<tasks/>
 </project>
