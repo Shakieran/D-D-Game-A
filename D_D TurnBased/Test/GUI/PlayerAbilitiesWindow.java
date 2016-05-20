@@ -117,7 +117,7 @@ public class PlayerAbilitiesWindow extends JFrame
 	public void setUp(int index)//sent the index of the box that was changed
 	{
 		intensify(index);
-		
+
 /*		try
 		{
 			int vb = Integer.parseInt(lastOption[index]);
@@ -131,7 +131,6 @@ public class PlayerAbilitiesWindow extends JFrame
 		{
 			System.out.println("null pointer");
 		}
-
 //		if(lastOption[index].compareTo("--")!=0)
 		if(lastOption[index].charAt(0)!='-')
 		{
@@ -141,17 +140,15 @@ public class PlayerAbilitiesWindow extends JFrame
 					abilOps[x].addItem(lastOption[index]);
 			}
 		}
-
 //		JComboBox holdier = abilOps[index];
 		lastOption[index] = (String)abilOps[index].getSelectedItem();
-
 		for(int x = 0; x < 6; x++)
 		{
-			
+
 //			abilOps[x].removeItem(lastOption[index]);
 		}*/
 	}
-	
+
 	public void intensify(int index)
 	{
 		ArrayList<String> opz = new ArrayList<String>();
@@ -181,7 +178,7 @@ public class PlayerAbilitiesWindow extends JFrame
 				}
 			}
 		}
-		
+
 		for(int c = 0; c < 6; c++)
 		{
 			temp = false;
@@ -190,20 +187,20 @@ public class PlayerAbilitiesWindow extends JFrame
 				if(usedOps[x]==c)
 					temp = true;
 			}
-			
+
 			if(!temp)
-				opz.add("" + roll[c]);
+				opz.add("" + rolls[c]);
 		}
-		
+
 		hold = new String[opz.size()];
 		hold2 = new String[hold.length+1];
-		
+
 		for(int x = 0; x < hold.length; x++)
 		{
 			hold[x] = opz.get(x);
-			hold2[x+1] = hold opz.get(x);
+			hold2[x+1] = opz.get(x);
 		}
-		
+
 		for(int x = 0; x < 6; x++)
 		{
 			if(x!=index)
@@ -216,7 +213,7 @@ public class PlayerAbilitiesWindow extends JFrame
 				}
 				else
 				{
-					hold2[0] = abilOps[x].getSelected();
+					hold2[0] = (String)abilOps[x].getSelectedItem();
 					abilOps[x].removeAllItems();
 					for(int c = 0; c < hold2.length; c++)
 						abilOps[x].addItem(hold2[c]);
@@ -224,13 +221,13 @@ public class PlayerAbilitiesWindow extends JFrame
 			}
 			else
 			{
-				for(int x = 0; x < 6; x++)
-					if(x!=index)
-						abilOps[x].addItem("" + lastOption[x]);
+				for(int i = 0; i < 6; i++)
+					if(i!=index)
+						abilOps[x].addItem("" + lastOption[i]);
 			}
 		}
 	}
-	
+
 	//below rolls ability scores as per standard rules, 4d6 drop the lowest, reroll if 13 is biggest roll OR mods <=0
 	public void getRolls()
 	{
