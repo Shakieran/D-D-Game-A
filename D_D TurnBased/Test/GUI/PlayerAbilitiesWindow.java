@@ -181,6 +181,54 @@ public class PlayerAbilitiesWindow extends JFrame
 				}
 			}
 		}
+		
+		for(int c = 0; c < 6; c++)
+		{
+			temp = false;
+			for(int x = 0; x < 6; x++)
+			{
+				if(usedOps[x]==c)
+					temp = true;
+			}
+			
+			if(!temp)
+				opz.add("" + roll[c]);
+		}
+		
+		hold = new String[opz.size()];
+		hold2 = new String[hold.length+1];
+		
+		for(int x = 0; x < hold.length; x++)
+		{
+			hold[x] = opz.get(x);
+			hold2[x+1] = hold opz.get(x);
+		}
+		
+		for(int x = 0; x < 6; x++)
+		{
+			if(x!=index)
+			{
+				if(usedOps[x] == 0)
+				{
+					abilOps[x].removeAllItems();
+					for(int c = 0; c < hold.length; c++)
+						abilOps[x].addItem(hold[c]);
+				}
+				else
+				{
+					hold2[0] = abilOps[x].getSelected();
+					abilOps[x].removeAllItems();
+					for(int c = 0; c < hold2.length; c++)
+						abilOps[x].addItem(hold2[c]);
+				}
+			}
+			else
+			{
+				for(int x = 0; x < 6; x++)
+					if(x!=index)
+						abilOps[x].addItem("" + lastOption[x]);
+			}
+		}
 	}
 	
 	//below rolls ability scores as per standard rules, 4d6 drop the lowest, reroll if 13 is biggest roll OR mods <=0
